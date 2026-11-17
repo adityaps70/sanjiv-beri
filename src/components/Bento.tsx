@@ -4,11 +4,11 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Award, Check } from "./Icons";
-import { Reveal, EASE } from "./Motion";
+import { Reveal, EASE, useIsMobile } from "./Motion";
 import { proofChips, AVATAR, PORTRAIT } from "@/lib/data";
 
 /** Luzia-spec card: 368×450, 40px radius, 24px padding, #F7F7F7 */
-const card = "relative h-[450px] w-full overflow-hidden rounded-[40px] p-6";
+const card = "relative h-[450px] w-full overflow-hidden rounded-[24px] p-6 md:rounded-[40px]";
 
 const chipIcons = [
   // gold check badge
@@ -25,23 +25,25 @@ const chipIcons = [
 ];
 
 const STEP = 74; // 62px chip + 12px gap, as on Luzia
+const STEP_SM = 64; // 52px chip + 12px gap on phones
 
 /** Luzia "projects completed" card: a tidy stack at rest that fans out on hover. */
-function Stack({ open }: { open: boolean }) {
+function Stack({ open, mobile }: { open: boolean; mobile: boolean }) {
   const chips = proofChips.slice(0, 3);
+  const step = mobile ? STEP_SM : STEP;
   return (
-    <div className="relative h-[62px] w-full">
+    <div className="relative h-[52px] w-full md:h-[62px]">
       {chips.map((text, k) => (
         <motion.div
           key={text}
           initial={false}
           animate={
             open
-              ? { y: (k - 1) * STEP, scale: 1, opacity: 1 }
+              ? { y: (k - 1) * step, scale: 1, opacity: 1 }
               : { y: k * 12, scale: 1 - k * 0.05, opacity: k === 0 ? 1 : 1 - k * 0.3 }
           }
           transition={{ duration: 0.7, ease: EASE, delay: open ? k * 0.04 : (2 - k) * 0.03 }}
-          className="absolute inset-x-0 top-0 flex h-[62px] items-center justify-between rounded-[16px] bg-white px-5"
+          className="absolute inset-x-0 top-0 flex h-[52px] items-center justify-between rounded-[16px] bg-white px-4 md:h-[62px] md:px-5"
           style={{
             zIndex: 3 - k,
             boxShadow:
@@ -56,7 +58,7 @@ function Stack({ open }: { open: boolean }) {
             transition={{ duration: 0.4, ease: EASE }}
             className="flex w-full items-center justify-between"
           >
-            <span className="text-[20px] font-normal leading-[1.3] tracking-[-0.03em]">{text}</span>
+            <span className="text-[18px] font-normal leading-[1.3] tracking-[-0.03em] md:text-[20px]">{text}</span>
             {chipIcons[k]}
           </motion.span>
         </motion.div>
@@ -86,23 +88,26 @@ function TrustPill({ open }: { open: boolean }) {
 }
 
 function ProofCard() {
-  const [open, setOpen] = useState(false);
+  const [hover, setOpen] = useState(false);
+  const mobile = useIsMobile();
+  // phones have no hover, so the stack sits fanned out there, as on Luzia's mobile layout
+  const open = mobile || hover;
   return (
     <motion.div
       onHoverStart={() => setOpen(true)}
       onHoverEnd={() => setOpen(false)}
       onTap={() => setOpen((v) => !v)}
-      className={`${card} flex cursor-default items-center bg-[#F7F7F7]`}
+      className={`${card} flex cursor-default items-center bg-[#F7F7F7] max-md:h-[284px] max-md:items-start max-md:pt-[140px]`}
     >
       <TrustPill open={open} />
-      <Stack open={open} />
+      <Stack open={open} mobile={mobile} />
     </motion.div>
   );
 }
 
 export default function Bento() {
   return (
-    <section id="about" className="py-32 md:py-44">
+    <section id="about" className="py-24 md:py-44">
       <div className="mx-auto grid max-w-[1128px] gap-3 px-5 md:grid-cols-3 md:px-0">
         {/* 1 — credential + photo inset (Luzia "Awwwards" card) */}
         <Reveal className={`${card} bg-[#F7F7F7]`}>
@@ -110,8 +115,8 @@ export default function Bento() {
             <span className="text-[30px] font-bold leading-none tracking-[-0.06em]">ICF.</span>
             <Award className="h-7 w-7 text-gold" />
           </div>
-          <h3 className="mt-6 text-[24px] font-medium leading-[1.3] tracking-[-0.03em]">PCC Certified Coach</h3>
-          <p className="mt-2 text-[16px] font-normal leading-[1.4] tracking-[-0.03em] text-[#6C7179]">
+          <h3 className="mt-6 text-[20px] font-medium md:text-[24px] leading-[1.3] tracking-[-0.03em]">PCC Certified Coach</h3>
+          <p className="mt-2 text-[15px] font-normal leading-[1.4] tracking-[-0.03em] text-[#6C7179] md:text-[16px]">
             Accredited by the International Coaching Federation since 2011, renewed in 2022.
           </p>
           <motion.div
@@ -139,7 +144,7 @@ export default function Bento() {
         {/* 2 — dark quote card (Luzia testimonial card) */}
         <Reveal delay={0.08} className="relative z-10">
           <div
-            className={`${card} flex flex-col justify-between bg-navy text-white`}
+            className={`${card} flex flex-col justify-between gap-10 bg-navy text-white max-md:h-auto max-md:min-h-[340px]`}
             style={{
               boxShadow:
                 "0 0.7px 1px -0.1px rgba(7,31,54,.05), 0 1.6px 2.3px -0.25px rgba(7,31,54,.06), 0 3px 4px -0.4px rgba(7,31,54,.06), 0 6px 9px -0.6px rgba(7,31,54,.08), 0 14px 20px -1px rgba(7,31,54,.12), 0 30px 60px -12px rgba(7,31,54,.28)",
@@ -149,7 +154,7 @@ export default function Bento() {
               <svg viewBox="0 0 40 30" className="h-[30px] w-[40px] text-white/35" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" aria-hidden>
                 <path d="M3 27V14a9 9 0 0 1 9-9M3 27h9V16H3M23 27V14a9 9 0 0 1 9-9M23 27h9V16h-9" />
               </svg>
-              <p className="mt-6 text-[24px] font-normal leading-[1.3] tracking-[-0.03em]">
+              <p className="mt-6 text-[20px] font-normal leading-[1.3] tracking-[-0.03em] md:text-[24px]">
                 Longevity isn&apos;t only about adding years to your life. It&apos;s about adding life to your years, and leading with heart while you do it.
               </p>
             </div>

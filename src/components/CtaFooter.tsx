@@ -63,7 +63,7 @@ export default function CtaFooter() {
           dark
           muted="Book a call,"
           strong="and let's design your next decade"
-          className="mt-2 max-w-[560px] text-[36px] leading-[1.15] tracking-[-0.04em] md:text-[48px]"
+          className="mt-2 max-w-[560px] text-[30px] leading-[1.15] tracking-[-0.04em] md:text-[48px]"
         />
         <Reveal delay={0.2} className="mt-9 flex flex-wrap items-center justify-center gap-3">
           <a
@@ -87,7 +87,7 @@ export default function CtaFooter() {
       </Container>
 
       {/* link block */}
-      <Container className="mt-28">
+      <Container className="mt-20 md:mt-28">
         <div className="grid gap-12 border-t border-white/10 pt-14 md:grid-cols-[1.05fr_1.95fr] md:gap-16">
           {/* newsletter card */}
           <Reveal>
@@ -126,7 +126,7 @@ export default function CtaFooter() {
           {/* columns */}
           <Reveal delay={0.1} className="grid grid-cols-2 gap-x-10 gap-y-10 text-left text-[15px] font-normal md:grid-cols-[0.7fr_1.5fr_0.9fr]">
             {cols.map((c) => (
-              <div key={c.h} className={c.h === "Latest writing" ? "col-span-2 md:col-span-1" : ""}>
+              <div key={c.h} className={c.h === "Latest writing" ? "order-last col-span-2 md:order-none md:col-span-1" : ""}>
                 <div className="mb-5 text-[14px] text-white/40">{c.h}</div>
                 <ul className="space-y-3">
                   {c.l.map((l) => (
@@ -163,7 +163,7 @@ export default function CtaFooter() {
       {/* bottom bar */}
       <div className="relative border-t border-white/10">
         <Container>
-          <div className="flex flex-col items-start justify-between gap-4 py-7 text-[14px] font-normal text-white/45 md:flex-row md:items-center">
+          <div className="flex flex-col items-start justify-between gap-3 py-7 text-[14px] font-normal text-white/45 md:flex-row md:items-center">
             <span>© {new Date().getFullYear()} Sanjiv Beri · Utrecht, the Netherlands</span>
             <span>
               Coaching &amp; education, <span className="text-white/75">not medical advice</span>

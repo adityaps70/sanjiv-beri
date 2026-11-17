@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform, type MotionValue } from "framer-motion";
-import { useRef, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 export const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -105,4 +105,17 @@ function FillWord({
       {word}&nbsp;
     </motion.span>
   );
+}
+
+/** true below Tailwind's md breakpoint (phones), false on first render and on desktop */
+export function useIsMobile() {
+  const [m, setM] = useState(false);
+  useEffect(() => {
+    const q = window.matchMedia("(max-width: 767px)");
+    const on = () => setM(q.matches);
+    on();
+    q.addEventListener("change", on);
+    return () => q.removeEventListener("change", on);
+  }, []);
+  return m;
 }

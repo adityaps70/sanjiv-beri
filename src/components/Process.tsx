@@ -12,7 +12,7 @@ export default function Process() {
   const line = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section id="process" className="grain overflow-hidden rounded-t-[36px] bg-navy py-28 text-white md:rounded-t-[48px] md:py-36">
+    <section id="process" className="grain overflow-hidden rounded-t-[36px] bg-navy py-24 text-white md:rounded-t-[48px] md:py-36">
       <Container>
         <div className="grid gap-6 md:grid-cols-[448px_1fr]">
           <Reveal>
@@ -22,11 +22,11 @@ export default function Process() {
             dark
             muted="A simple, proven path to lasting change,"
             strong="from your first call to habits that last a lifetime"
-            className="text-[30px] font-medium leading-[1.2] tracking-[-0.04em] md:text-[36px]"
+            className="text-[28px] font-medium leading-[1.2] tracking-[-0.04em] md:text-[36px]"
           />
         </div>
 
-        <div ref={ref} className="relative mt-20 md:ml-[45%]">
+        <div ref={ref} className="relative mt-14 md:ml-[45%] md:mt-20">
           <div className="absolute -left-10 bottom-0 top-0 hidden w-px bg-white/10 md:block">
             <motion.div style={{ height: line }} className="w-px bg-gold" />
           </div>
@@ -41,8 +41,8 @@ export default function Process() {
                 className={`relative w-full rounded-[20px] border border-white/[0.07] bg-white/[0.035] p-6 backdrop-blur-sm md:w-[64%] ${i % 2 ? "md:ml-auto" : ""}`}
               >
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/[0.07] text-[18px] text-white/70">{i + 1}</span>
-                <h4 className="mt-7 text-[24px] tracking-[-0.03em]">{s.t}</h4>
-                <p className="mt-2.5 text-[16px] font-normal leading-[1.55] text-white/50">{s.d}</p>
+                <h4 className="mt-7 text-[20px] tracking-[-0.03em] md:text-[24px]">{s.t}</h4>
+                <p className="mt-2.5 text-[15px] font-normal leading-[1.5] text-white/50 md:text-[16px]">{s.d}</p>
               </motion.div>
             ))}
           </div>

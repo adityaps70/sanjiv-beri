@@ -9,9 +9,9 @@ import { ALL_POSTS, featuredPost, posts, why, img } from "@/lib/data";
 
 function Meta({ cats, extra }: { cats: string[]; extra?: string }) {
   return (
-    <div className="flex items-center gap-2 text-[13px] font-normal text-navy/45">
+    <div className="flex flex-wrap items-center gap-2 text-[13px] font-normal text-navy/45">
       {cats.map((c) => (
-        <span key={c} className="rounded-full bg-surface px-3 py-1.5 text-navy/55">
+        <span key={c} className="whitespace-nowrap rounded-full bg-surface px-3 py-1.5 text-navy/55">
           {c}
         </span>
       ))}
@@ -42,19 +42,19 @@ function Byline({ date }: { date: string }) {
 
 export default function Insights() {
   return (
-    <section id="insights" className="bg-[#FAFAFB] py-28 md:py-36">
+    <section id="insights" className="bg-[#FAFAFB] py-24 md:py-36">
       <Container>
         {/* header – OneDollar style */}
         <div className="grid gap-8 md:grid-cols-2 md:items-end">
           <Reveal>
-            <h2 className="text-[40px] font-semibold leading-[1.05] tracking-[-0.045em] md:text-[52px]">
+            <h2 className="text-[34px] font-semibold leading-[1.05] tracking-[-0.045em] md:text-[52px]">
               Fresh insights,
               <br />
               for a longer life.
             </h2>
           </Reveal>
           <Reveal delay={0.1}>
-            <p className="text-[17px] font-normal leading-[1.55] text-navy/75">
+            <p className="text-[15px] font-normal leading-[1.5] text-navy/75 md:text-[17px]">
               Practical thinking on healthspan, emotional intelligence and leadership, from calm minds and self-care to building teams where people genuinely support each other.
             </p>
             <a href={ALL_POSTS} target="_blank" rel="noopener noreferrer" className="group mt-6 inline-flex items-center gap-2 text-[17px] text-navy/55 transition-colors hover:text-navy">
@@ -75,16 +75,16 @@ export default function Insights() {
             whileHover="hover"
             className="grid overflow-hidden rounded-[22px] border border-line bg-white p-3 shadow-soft md:grid-cols-2"
           >
-            <div className="flex flex-col justify-between gap-8 p-5 md:p-7">
+            <div className="order-2 flex flex-col justify-between gap-8 p-3 pt-5 md:order-none md:p-7">
               <div>
                 <Meta cats={featuredPost.cat} extra="Article" />
-                <h3 className="mt-6 text-[30px] font-semibold leading-[1.12] tracking-[-0.04em] md:text-[38px]">{featuredPost.title}</h3>
-                <p className="mt-5 text-[16px] font-normal leading-[1.55] text-navy/50">{featuredPost.excerpt}</p>
+                <h3 className="mt-5 text-[24px] font-semibold leading-[1.15] tracking-[-0.04em] md:mt-6 md:text-[38px]">{featuredPost.title}</h3>
+                <p className="mt-4 text-[15px] font-normal leading-[1.55] text-navy/50 md:mt-5 md:text-[16px]">{featuredPost.excerpt}</p>
               </div>
               <Byline date={featuredPost.date} />
             </div>
-            <div className="aspect-[4/3] overflow-hidden rounded-[16px] md:aspect-auto">
-              <motion.div variants={{ hover: { scale: 1.05 } }} transition={{ duration: 0.9, ease: EASE }} className="relative h-full min-h-[320px] w-full">
+            <div className="order-1 aspect-[4/3] overflow-hidden rounded-[16px] md:order-none md:aspect-auto">
+              <motion.div variants={{ hover: { scale: 1.05 } }} transition={{ duration: 0.9, ease: EASE }} className="relative h-full w-full md:min-h-[320px]">
                 <Image src={img(featuredPost.photo, 1000)} alt="" fill sizes="(max-width: 768px) 100vw, 560px" className="object-cover" />
               </motion.div>
             </div>
@@ -111,7 +111,7 @@ export default function Insights() {
                 </div>
                 <div className="flex flex-1 flex-col p-3 pt-5">
                   <Meta cats={[p.cat]} extra={p.date} />
-                  <h4 className="mt-5 text-[20px] leading-[1.3] tracking-[-0.03em]">{p.title}</h4>
+                  <h4 className="mt-5 text-[18px] leading-[1.3] tracking-[-0.03em] md:text-[20px]">{p.title}</h4>
                   <p className="mb-6 mt-3 text-[15px] font-normal leading-[1.55] text-navy/50">{p.excerpt}</p>
                   <div className="mt-auto">
                     <Byline date={p.date} />
@@ -123,12 +123,12 @@ export default function Insights() {
         </div>
 
         {/* Why – scroll-filling statement */}
-        <div className="mt-36 grid gap-10 md:grid-cols-[0.8fr_1.2fr]">
+        <div className="mt-24 grid gap-8 md:mt-36 md:grid-cols-[0.8fr_1.2fr] md:gap-10">
           <Reveal className="flex items-center gap-3 self-start">
             <span className="flex h-10 w-10 items-center justify-center rounded-full bg-surface text-navy">
               <Help />
             </span>
-            <span className="text-[32px] font-semibold tracking-[-0.045em]">Why Sanjiv</span>
+            <span className="text-[26px] font-semibold tracking-[-0.045em] md:text-[32px]">Why Sanjiv</span>
           </Reveal>
           <div>
             <ScrollFill text={why} className="text-[28px] font-semibold leading-[1.25] tracking-[-0.035em] md:text-[40px]" />

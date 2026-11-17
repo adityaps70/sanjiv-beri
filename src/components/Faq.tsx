@@ -20,7 +20,7 @@ export default function Faq() {
             <TwoTone
               muted="Answers to common questions to help you understand"
               strong="the process and how we can work together"
-              className="mt-6 text-[30px] font-medium leading-[1.2] tracking-[-0.04em] md:text-[36px]"
+              className="mt-6 text-[28px] font-medium leading-[1.2] tracking-[-0.04em] md:text-[36px]"
             />
             <Reveal delay={0.2} className="mt-8">
               <Button href={LINKEDIN} external>
@@ -40,7 +40,7 @@ export default function Faq() {
                   <div key={f.q} className="rounded-[18px] bg-white shadow-soft">
                     <button
                       onClick={() => setOpen(isOpen ? -1 : i)}
-                      className="flex w-full items-center justify-between gap-6 px-5 py-5 text-left text-[18px] tracking-[-0.025em]"
+                      className="flex w-full items-center justify-between gap-6 px-5 py-5 text-left text-[17px] tracking-[-0.025em]"
                     >
                       {f.q}
                       <motion.span animate={{ rotate: isOpen ? 45 : 0 }} transition={{ duration: 0.5, ease: EASE }} className="shrink-0 text-navy/50">
@@ -56,7 +56,7 @@ export default function Faq() {
                           transition={{ duration: 0.55, ease: EASE }}
                           className="overflow-hidden"
                         >
-                          <p className="px-5 pb-5 text-[16px] font-normal leading-[1.55] text-navy/55">{f.a}</p>
+                          <p className="px-5 pb-5 text-[15px] font-normal leading-[1.55] text-navy/55 md:text-[16px]">{f.a}</p>
                         </motion.div>
                       )}
                     </AnimatePresence>

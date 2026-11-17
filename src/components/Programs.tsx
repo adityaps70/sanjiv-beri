@@ -14,7 +14,7 @@ const FADE = "transition-opacity duration-500 ease-[cubic-bezier(.22,1,.36,1)]";
    white 56px title box (20px radius), white body box, 99px photos (12px radius). */
 export default function Programs() {
   return (
-    <section id="programs" className="pb-32 md:pb-44">
+    <section id="programs" className="pb-24 md:pb-44">
       <Container>
         <div className="grid gap-6 md:grid-cols-[448px_1fr]">
           <Reveal>
@@ -23,7 +23,7 @@ export default function Programs() {
           <TwoTone
             muted="Science-backed programs that extend your healthspan and sharpen your edge."
             strong="I help you perform at your peak, for decades to come"
-            className="text-[30px] font-medium leading-[1.2] tracking-[-0.04em] md:text-[36px]"
+            className="text-[28px] font-medium leading-[1.2] tracking-[-0.04em] md:text-[36px]"
           />
         </div>
 
@@ -52,8 +52,8 @@ export default function Programs() {
                   {/* title box: title rolls up into "Start a Project", icon flips to an arrow */}
                   <div className={`flex h-14 items-center justify-between rounded-[20px] py-2 pl-3 pr-2 ${f ? "bg-navy" : "bg-white"}`}>
                     <div className="relative h-[26px] flex-1 overflow-hidden">
-                      <h3 className={`text-[20px] font-medium leading-[26px] tracking-[-0.03em] ${ROLL} group-hover:-translate-y-full ${f ? "text-white" : ""}`}>{p.title}</h3>
-                      <span aria-hidden className={`absolute inset-x-0 top-0 block translate-y-full text-[20px] font-medium leading-[26px] tracking-[-0.03em] ${ROLL} group-hover:translate-y-0 ${f ? "text-white" : ""}`}>
+                      <h3 className={`text-[18px] font-medium leading-[26px] tracking-[-0.03em] md:text-[20px] ${ROLL} group-hover:-translate-y-full ${f ? "text-white" : ""}`}>{p.title}</h3>
+                      <span aria-hidden className={`absolute inset-x-0 top-0 block translate-y-full text-[18px] font-medium md:text-[20px] leading-[26px] tracking-[-0.03em] ${ROLL} group-hover:translate-y-0 ${f ? "text-white" : ""}`}>
                         Start a Project
                       </span>
                     </div>
@@ -70,9 +70,9 @@ export default function Programs() {
                   </div>
 
                   {/* body box: dims on hover so the call to action reads first */}
-                  <div className={`flex flex-1 flex-col rounded-[20px] p-6 ${f ? "bg-navy" : "bg-white"}`}>
+                  <div className={`flex flex-1 flex-col rounded-[20px] p-5 md:p-6 ${f ? "bg-navy" : "bg-white"}`}>
                     <div className={`flex flex-1 flex-col ${FADE} group-hover:opacity-30`}>
-                      <p className={`text-[16px] font-normal leading-[1.4] tracking-[-0.03em] ${f ? "text-white" : "text-[#6C7179]"}`}>{p.body}</p>
+                      <p className={`text-[15px] font-normal leading-[1.4] tracking-[-0.03em] md:text-[16px] ${f ? "text-white" : "text-[#6C7179]"}`}>{p.body}</p>
                       <div className="mt-6 grid grid-cols-3 gap-1">
                         {p.photos.map((src) => (
                           <div key={src} className="relative aspect-square overflow-hidden rounded-[12px] bg-[#F7F7F7]">
@@ -84,7 +84,7 @@ export default function Programs() {
                         {p.tags.map((t) => (
                           <span
                             key={t}
-                            className={`inline-flex items-center rounded-[12px] px-3 py-1.5 text-[16px] font-normal leading-[1.4] tracking-[-0.03em] ${
+                            className={`inline-flex items-center rounded-[12px] px-3 py-1.5 text-[15px] font-normal md:text-[16px] leading-[1.4] tracking-[-0.03em] ${
                               f ? "border border-white/50 text-white" : "bg-[#F7F7F7] text-[#6C7179]"
                             }`}
                           >
