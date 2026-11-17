@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useState } from "react";
-import { nav, LINKEDIN } from "@/lib/data";
+import { nav, BOOKING } from "@/lib/data";
 import { EASE } from "./Motion";
 
 export default function Nav() {
@@ -30,7 +30,7 @@ export default function Nav() {
           ))}
         </nav>
         <a
-          href={LINKEDIN}
+          href={BOOKING}
           target="_blank"
           rel="noopener noreferrer"
           className="hidden h-12 items-center rounded-[14px] bg-navy px-6 text-[16px] font-medium text-white shadow-float transition-transform duration-500 hover:-translate-y-0.5 md:inline-flex"
@@ -54,7 +54,7 @@ export default function Nav() {
               {n.label}
             </a>
           ))}
-          <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex h-12 w-fit items-center rounded-[14px] bg-navy px-6 text-[15px] text-white">
+          <a href={BOOKING} target="_blank" rel="noopener noreferrer" className="mt-2 inline-flex h-12 w-fit items-center rounded-[14px] bg-navy px-6 text-[15px] text-white">
             Book a Call
           </a>
         </div>

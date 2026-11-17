@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Container } from "./ui";
 import { Reveal, TwoTone, EASE } from "./Motion";
 import { ArrowRight } from "./Icons";
-import { LINKEDIN, NEWSLETTER, ALL_POSTS, nav, featuredPost, posts } from "@/lib/data";
+import { LINKEDIN, BOOKING, NEWSLETTER, ALL_POSTS, nav, featuredPost, posts } from "@/lib/data";
 
 const GoldFlower = dynamic(() => import("./three/GoldFlower"), { ssr: false });
 
@@ -30,7 +30,7 @@ const cols: { h: string; l: L[] }[] = [
     l: [
       { label: "LinkedIn", href: LINKEDIN },
       { label: "The Mindful Mantra", href: NEWSLETTER },
-      { label: "Book a Call", href: LINKEDIN },
+      { label: "Book a Call", href: BOOKING },
     ],
   },
 ];
@@ -67,7 +67,7 @@ export default function CtaFooter() {
         />
         <Reveal delay={0.2} className="mt-9 flex flex-wrap items-center justify-center gap-3">
           <a
-            href={LINKEDIN}
+            href={BOOKING}
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex h-12 items-center gap-2 rounded-[14px] bg-white px-6 text-[16px] font-medium text-navy shadow-float transition-transform duration-500 hover:-translate-y-0.5"

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Container, Label } from "./ui";
 import { Reveal, TwoTone, EASE } from "./Motion";
 import { ProgramIcon } from "./Icons";
-import { programs, img, LINKEDIN } from "@/lib/data";
+import { programs, img, BOOKING } from "@/lib/data";
 
 const ROLL = "transition-transform duration-[600ms] ease-[cubic-bezier(.22,1,.36,1)]";
 const FADE = "transition-opacity duration-500 ease-[cubic-bezier(.22,1,.36,1)]";
@@ -33,10 +33,10 @@ export default function Programs() {
             return (
               <Reveal key={p.title} delay={idx * 0.08} className={f ? "relative z-10" : ""}>
                 <motion.a
-                  href={LINKEDIN}
+                  href={BOOKING}
                   target="_blank"
                   rel="noreferrer"
-                  aria-label={`${p.title}: start a project`}
+                  aria-label={`${p.title}: book a call`}
                   whileHover={{ y: -8 }}
                   transition={{ duration: 0.6, ease: EASE }}
                   className={`group flex h-full flex-col gap-1.5 rounded-[24px] p-1.5 ${f ? "bg-[#03111F]" : "bg-[#F7F7F7]"}`}

@@ -1,4 +1,5 @@
 export const LINKEDIN = "https://www.linkedin.com/in/sanjivberi/";
+export const BOOKING = "https://tidycal.com/sanjiv";
 export const NEWSLETTER = "https://www.linkedin.com/newsletters/the-mindful-mantra-7035646322716131329/";
 export const ALL_POSTS = "https://www.linkedin.com/in/sanjivberi/recent-activity/newsletter/";
 

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { EASE } from "./Motion";
 import { Button } from "./ui";
-import { LINKEDIN, PORTRAIT, credentials } from "@/lib/data";
+import { BOOKING, PORTRAIT, credentials } from "@/lib/data";
 
 const HeroOrb = dynamic(() => import("./three/HeroOrb"), { ssr: false });
 
@@ -71,7 +71,7 @@ export default function Hero() {
               A Longevity Performance Strategist and ICF PCC coach based in Utrecht, Sanjiv blends nutrition science, emotional intelligence and executive coaching to help high performers add healthy, high-energy years to life and career.
             </motion.p>
             <motion.div {...up(0.95)}>
-              <Button href={LINKEDIN} external arrow>
+              <Button href={BOOKING} external arrow>
                 Book a Call
               </Button>
             </motion.div>
