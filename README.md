@@ -1,18 +1,30 @@
-# Sanjiv Beri: personal site
+# Sanjiv Beri — HEALTHSPAN
 
-Personal branding site for [Sanjiv Beri](https://www.linkedin.com/in/sanjivberi/), Longevity Performance Strategist and ICF PCC coach.
+The current approved website is in `site/`. It is static HTML, CSS and JavaScript, with local WebP images. No build step is required.
 
-Built with Next.js (static export), Tailwind CSS, Framer Motion, Lenis and React Three Fiber. Deployed to GitHub Pages by `.github/workflows/deploy.yml` on every push to `main`.
+## Deployment
 
-## Run locally
+`.github/workflows/deploy.yml` publishes `site/` to GitHub Pages whenever `main` changes. In repository Settings > Pages, select **GitHub Actions** as the source if it is not already selected.
 
-```bash
-npm install
-npm run dev
-```
-
-## Build the static site
+## Local preview
 
 ```bash
-PAGES_BASE_PATH=/sanjiv-beri npm run build   # output in ./out
+python3 -m http.server 8000 --directory site
 ```
+
+Then open http://localhost:8000.
+
+## Editing
+
+- `site/index.html`: content, booking links and email links
+- `site/style.css`: layout and styling
+- `site/script.js`: floating booking-button behaviour
+- `site/assets/`: website images and favicon
+
+The lower Meet Sanjiv portrait uses the latest approved Dutch-park image. The header badge reads “BIOLOGICAL AGE — 20 years younger” and is level.
+
+Booking links open the existing TidyCal page. Diagnostic links open an email draft; no automatic email delivery is configured. Fonts load from Google Fonts with browser fallbacks.
+
+## Previous implementation
+
+The earlier Next.js application remains in `src/` and `public/`, with its package files and configuration, for reference. It is not the active GitHub Pages source.
