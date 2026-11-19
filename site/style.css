@@ -17,3 +17,8 @@
 .hero-portrait .age-badge .badge-value .serif{font:600 46px/1 var(--serif);color:var(--navy)}
 .age-badge .badge-value>span:last-child{font-size:14px;color:var(--muted)}
 @media(max-width:540px){.hero-portrait .portrait-note.age-badge{padding:15px 18px;bottom:-30px}.hero-portrait .age-badge .badge-value .serif{font-size:40px}.hero-portrait .age-badge .mini{font-size:10px}.age-badge .badge-value>span:last-child{font-size:12px}}
+
+/* Circular header portrait at every viewport size. */
+.hero-portrait .photo-frame{height:auto;aspect-ratio:1;border-radius:50%}
+.hero-portrait .photo-frame:before{inset:-12px;border-radius:50%}
+.hero-portrait .photo-frame img{inset:0;width:100%;height:100%;object-fit:contain;border-radius:50%;filter:none}
